@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
+// Focado na UI e nos handlers e navegação
 const NavigationButtons = ({ currentId, onPrev, onNext, isHidden }) => {
+    // Lógica simples de destivação dos botões para o limite da Pokédex
     const isPrevDisabled = currentId <= 1;
     const isNextDisabled = currentId >= 1025;
-
+    //  Se for true, não renderiza nada
     if (isHidden) return null;
 
     return(
@@ -15,6 +17,7 @@ const NavigationButtons = ({ currentId, onPrev, onNext, isHidden }) => {
     );
 };
 
+// Validação de Props
 NavigationButtons.propTypes = {
     currentId: PropTypes.number,
     onPrev: PropTypes.func.isRequired,

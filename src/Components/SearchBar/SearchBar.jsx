@@ -1,7 +1,9 @@
 import React, {useState} from "react";
 import PropTypes from 'prop-types';
 
+// Focado na UI do formulário e no estado local do input
 const SearchBar = ({ onSearch }) => {
+    // Gerencia o valor digitado
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleSubmit = (event) => {
@@ -9,8 +11,9 @@ const SearchBar = ({ onSearch }) => {
         const trimmedTerm = searchTerm.trim().toLowerCase();
 
         if(trimmedTerm) {
+            // Chama a função onSearch 
             onSearch(trimmedTerm);
-            setSearchTerm('') //limpar o input
+            setSearchTerm('') // Limpar o input
         }
     };
 
@@ -22,6 +25,7 @@ const SearchBar = ({ onSearch }) => {
     );
 };
 
+// Validação de props para que onSearch é uma função
 SearchBar.propTypes = {
     onSearch: PropTypes.func.isRequired
 };
